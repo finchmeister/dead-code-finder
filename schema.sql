@@ -15,3 +15,9 @@ create table called_code
     client_ip      char(50)                               null,
     accessed_at    datetime default '0000-00-00 00:00:00' not null on update current_timestamp()
 );
+
+create table code_check_locations
+(
+    location varchar(500) not null
+        primary key
+);

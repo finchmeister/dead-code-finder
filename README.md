@@ -35,3 +35,13 @@ View the RabbitMQ management console http://localhost:15672/
 user: guest
 password: guest
 ```
+
+Analyse code base to register dead code locations. Pass full document root path, e.g.
+```
+php analysis-server/analyse-codebase.php $(pwd)/client/public
+```
+
+Find Dead Code
+```
+php analysis-server/find-dead-code.php
+```
