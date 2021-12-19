@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
 
-namespace DeadCodeFinder\UpdServer\Persistence;
+namespace DeadCodeFinder\AnalysisServer\Persistence;
 
-use DeadCodeFinder\UpdServer\CalledCodeDto;
+use DeadCodeFinder\AnalysisServer\CalledCodeDto;
 use PDO;
 
-class Mysql implements Persistence
+class Mysql implements PersistenceInterface
 {
     private PDO $pdo;
 

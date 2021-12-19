@@ -39,7 +39,9 @@ function test_function($message) {
     send($message);
 }
 $start = microtime(true);
-for ($i = 0; $i < 10000; $i++) {
+$n = isset($argv[1]) ? (int) $argv[1] : 10;
+
+for ($i = 0; $i < $n; $i++) {
     send($message);
 }
 //test_function($message);

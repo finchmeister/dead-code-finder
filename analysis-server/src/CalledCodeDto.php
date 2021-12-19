@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace DeadCodeFinder\UpdServer;
+namespace DeadCodeFinder\AnalysisServer;
 
 class CalledCodeDto
 {
