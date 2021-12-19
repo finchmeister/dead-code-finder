@@ -1,0 +1,19 @@
+services:
+    db:
+        image: mariadb:10.6
+        environment:
+            - MARIADB_DATABASE=deadcode
+            - MARIADB_ROOT_PASSWORD=my-secret-pw
+        restart: always
+        ports:
+            - 3306:3306
+        healthcheck:
+            test: [ "CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent" ]
+            interval: 3s
+            retries: 5
+            start_period: 30s
+        volumes:
+            - db-data:/var/lib/mysql
+
+volumes:
+    db-data: {}
