@@ -1,5 +1,11 @@
 # Dead Code Finder POC
 
+- Client library `client/src/Client.php` used to mark possible dead code locations in the codebase. Data will be sent via UDP to the UDP server to avoid any blocking.
+- UDP server `udp-server/server.php` receives the marker information and adds it to a message bus for performance.
+- Analysis server worker `analysis-server/worker.php` consumes dead code messages and inserts them to MariaDB.
+- `analysis-server/analyse-codebase.php` scans the code base to find all the dead code marker locations.
+- `analysis-server/find-dead-code.php` compares all the dead code locations with those that are found to have been called. Those not called are considered as dead code :skull:.
+
 ## Instructions:
 
 Start MariaDB & RabbitMQ
