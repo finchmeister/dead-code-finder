@@ -4,7 +4,7 @@ use DeadCodeFinder\Client\Client;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-$deadCodeClient = new Client(array('documentRoot' => '/Users/jfinch/PersonalProjects/dead-code-finder/client/public'));
+$deadCodeClient = new Client(array('documentRoot' => __DIR__));
 
 $deadCodeClient->checkForDeadCode();
 

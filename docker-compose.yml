@@ -2,7 +2,6 @@ services:
     db:
         image: mariadb:10.6
         environment:
-            - MARIADB_DATABASE=deadcode
             - MARIADB_ROOT_PASSWORD=my-secret-pw
         restart: always
         ports:
@@ -14,6 +13,7 @@ services:
             start_period: 30s
         volumes:
             - db-data:/var/lib/mysql
+            - ./schema.sql:/docker-entrypoint-initdb.d/schema.sql
     rabbitmq:
         image: rabbitmq:3.9.11-management
         ports:

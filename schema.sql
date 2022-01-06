@@ -1,3 +1,5 @@
+CREATE DATABASE deadcode;
+
 use deadcode;
 
 create table called_code

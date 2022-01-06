@@ -13,28 +13,33 @@ Start MariaDB & RabbitMQ
 docker compose up -d
 ```
 
-Import `schema.sql`
-
-Start the UDP Server
+Install and start the UDP Server
 
 ```
-php udp-server/server.php
+cd udp-server
+composer install
+php server.php
 ```
 
-Start the Analysis Worker
+In a separate terminal, install and start the Analysis Worker
 ```
-php analysis-server/worker.php
-```
-
-Either run some cli simulations
-```
-php client/simulate.php 100
+cd analysis-server
+composer install
+php worker.php
 ```
 
-Or visit the web server at http://localhost:8000
+In another separate terminal, install the client, and either run some cli simulations to test the throughput
 ```
-php -S localhost:8000 -t client/public/
+cd client
+composer install
+php simulate.php 10000
 ```
+
+Or start the web server to run a real example
+```
+php -S localhost:8000 -t public/
+```
+Go to http://localhost:8000/phpinfo.php to trigger the dead code markers
 
 View the RabbitMQ management console http://localhost:15672/
 ```
